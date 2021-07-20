@@ -1,0 +1,23 @@
+server:
+  port: 1121
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+  datasource:
+    url: jdbc:mysql://localhost:3306/CarParking
+    username: root
+    password: matkhau178
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      ddl-auto:  update
+    show-sql: true
+
+
+
+
+
