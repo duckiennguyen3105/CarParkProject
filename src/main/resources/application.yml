@@ -1,14 +1,14 @@
 server:
-  port: 1121
+  port: 8080
 spring:
   mvc:
     view:
       prefix: /WEB-INF/jsp/
       suffix: .jsp
   datasource:
-    url: jdbc:mysql://localhost:3306/CarParking
+    url: jdbc:mysql://localhost:3306/carparking
     username: root
-    password: matkhau178
+    password: betahouse3105
   jpa:
     properties:
       hibernate:

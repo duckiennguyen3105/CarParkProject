@@ -1,17 +1,14 @@
 package com.fsoft.carparkproject.dto;
 
-import com.fsoft.carparkproject.model.Place;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class PlaceDTO {
     private Long id;
     private String name;
-    public PlaceDTO(Place place){
-        this.id = place.getId();
-        this.name = place.getPlaceName();
-    }
 
 }

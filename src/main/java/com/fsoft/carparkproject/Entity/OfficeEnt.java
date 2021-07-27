@@ -1,18 +1,16 @@
-package com.fsoft.carparkproject.model;
+package com.fsoft.carparkproject.Entity;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.Collection;
-import java.util.List;
 
 @Data
 @Entity
-@Table(name = "office")
+@Table
 @NoArgsConstructor
-public class Office  {
+public class OfficeEnt {
     @Id
     @GeneratedValue(
             generator = "office_sequence",
@@ -23,12 +21,12 @@ public class Office  {
     private String phone;
     private String price;
     @ManyToOne
-    @JoinColumn(name = "trip_id",referencedColumnName = "id")
-    private Trip trip;
+    @JoinColumn(name = "tripEnt_id",referencedColumnName = "id")
+    private TripEnt tripEnt;
 
     @ManyToOne
-    @JoinColumn(name = "place_id", referencedColumnName = "id")
-    private Place places;
+    @JoinColumn(name = "placeEnt_id", referencedColumnName = "id")
+    private PlaceEnt places;
 
     private LocalDate contractDeadline;
 

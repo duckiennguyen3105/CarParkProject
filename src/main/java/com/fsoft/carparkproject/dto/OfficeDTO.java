@@ -1,26 +1,16 @@
 package com.fsoft.carparkproject.dto;
 
-import com.fsoft.carparkproject.model.Office;
-import com.fsoft.carparkproject.model.Place;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-import javax.persistence.*;
 import java.time.LocalDate;
+
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class OfficeDTO {
     private Long id;
     private String name;
 
-    public OfficeDTO(Office office) {
-        this.name = office.getName();
-        this.phone = office.getPhone();
-        this.price = office.getPrice();
-        this.place_id = office.getPlaces().getId();
-        this.contractDeadline = office.getContractDeadline();
-        this.trip_id = office.getTrip().getId();
-    }
     private Long trip_id;
 
     private String phone;
