@@ -9,9 +9,6 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table
-@NoArgsConstructor
-@AllArgsConstructor
 public class EmployeeEnt {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

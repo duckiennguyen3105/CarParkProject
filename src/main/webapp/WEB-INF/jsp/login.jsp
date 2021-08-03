@@ -14,13 +14,13 @@
     <title>Login</title>
 </head>
 <body>
-<jsp:include page="_navbar.jsp"/>
+
 <section class="login-page">
     <div class="container my-5 ">
         <div class="row justify-content-center align-self-center">
             <div class="col-md-6 mb-4">
                 <section>
-                    <form id="loginForm" class="text-center border p-5" autocomplete="off" action="${pageContext.request.contextPath}/ServletMemberLogin" method="post" name="login">
+                    <form id="loginForm" class="text-center border p-5" autocomplete="off" action="/auth/login" method="post" name="login">
                         <p class="h4 mb-4">Sign in</p>
                         <input name="email" type="email" id="defaultLoginFormEmail" class="form-control mb-4"
                                placeholder="E-mail" required>

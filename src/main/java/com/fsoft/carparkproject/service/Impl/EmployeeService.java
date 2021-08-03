@@ -2,9 +2,13 @@ package com.fsoft.carparkproject.service.Impl;
 
 import com.fsoft.carparkproject.Entity.EmployeeEnt;
 import com.fsoft.carparkproject.dto.EmployeeDTO;
+import com.fsoft.carparkproject.exception.UserAlreadyExistException;
 import com.fsoft.carparkproject.repository.EmployeeRepository;
 import com.fsoft.carparkproject.service.IEmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.Scope;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -18,7 +22,8 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
-public class EmployeeService implements IEmployeeService {
+@Primary
+public class EmployeeService implements IEmployeeService  {
     @Autowired
     EmployeeRepository employeeRepository;
     @Autowired
@@ -31,9 +36,14 @@ public class EmployeeService implements IEmployeeService {
     }
 
     @Override
-    public void addEmployee(EmployeeDTO employeeDTO) {
-        EmployeeEnt employeeEnt = mapFromDtoToEnt(employeeDTO);
-        employeeRepository.save(employeeEnt);
+    public void addEmployee(EmployeeDTO employeeDTO) throws UserAlreadyExistException {
+        if(!employeeRepository.findEmployeeEntByAccount(employeeDTO.getAccount()).isEmpty()){                  
+            throw new UserAlreadyExistException("User " + employeeDTO.getAccount() + " already exists");
+        }else{
+
+            EmployeeEnt employeeEnt = mapFromDtoToEnt(employeeDTO);
+            employeeRepository.save(employeeEnt);
+        }
     }
 
     @Override

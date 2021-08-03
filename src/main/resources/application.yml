@@ -6,7 +6,7 @@ spring:
       prefix: /WEB-INF/jsp/
       suffix: .jsp
   datasource:
-    url: jdbc:mysql://localhost:3306/carparking
+    url: jdbc:mysql://localhost:3306/cardemo
     username: root
     password: betahouse3105
   jpa:
@@ -14,7 +14,7 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5InnoDBDialect
     hibernate:
-      ddl-auto:  update
+      ddl-auto:  create-drop
     show-sql: true
 
 
